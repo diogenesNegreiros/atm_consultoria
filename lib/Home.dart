@@ -1,4 +1,9 @@
+import 'package:atm_consultoria/HomeClientes.dart';
+import 'package:atm_consultoria/HomeEmpresa.dart';
+import 'package:atm_consultoria/HomeServicos.dart';
 import 'package:flutter/material.dart';
+
+import 'HomeContatos.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -6,13 +11,32 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  void _goToCompany() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomeEmpresa()));
+  }
+
+  void _goToClient() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomeClientes()));
+  }
+
+  void _goToContact() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomeContatos()));
+  }
+
+  void _goToService() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomeServicos()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text("ATM consultoria"),
-          backgroundColor: Colors.green,
         ),
         body: Container(
           padding: EdgeInsets.all(30),
@@ -26,7 +50,7 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: () => print("tap in serviço"),
+                      onTap: () => _goToService(),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -42,7 +66,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => print("tap in empresa"),
+                      onTap: () => _goToCompany(),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -66,7 +90,7 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: () => print("tap in clientes"),
+                      onTap: () => _goToClient(),
                       child: Container(
                         width: 100,
                         height: 100,
@@ -82,7 +106,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => print("tap in contato"),
+                      onTap: () => _goToContact(),
                       child: Container(
                         width: 100,
                         height: 100,
